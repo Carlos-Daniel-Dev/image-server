@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 
 use App\Http\Models\Image;
 
+use Illuminate\Support\Facades\Storage;
+
 class ImageController extends Controller
 {
 
@@ -30,7 +32,13 @@ class ImageController extends Controller
 
     public function show(Request $request, string $id)
     {
-        // Seu código aqui
+        if (Storage::exists('public/images/' . $id)) {
+            // Retorna a imagem como resposta HTTP
+            return response()->file(Storage::path('public/images/' . $id));
+        } else {
+            // Retorna uma resposta de erro caso a imagem não exista
+            abort(404);
+        }
     }
 
 }
