@@ -8,6 +8,8 @@ use App\Http\Models\Image;
 
 use Illuminate\Support\Facades\Storage;
 
+
+
 class ImageController extends Controller
 {
 
@@ -26,7 +28,7 @@ class ImageController extends Controller
 
         $image->storeAs('public/images', $imageName);
 
-        return redirect()->route('images.upload')->with('success', 'image uploaded with sucess');
+        return redirect()->route('images.show', ['id' => $imageName]);
     }
 
 
