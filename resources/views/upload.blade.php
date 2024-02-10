@@ -51,13 +51,32 @@
     @endif
 
     
-    <form action="{{ route('images.store') }}" method="post" enctype="multipart/form-data">
+    <form id="uploadForm" action="{{ route('images.store') }}" method="post" enctype="multipart/form-data">
         @csrf
-        <input type="file" name="image" accept="image/*" required>
-        <br>
-        <input type="submit" value="Enviar Imagem">
+        <div id="imagePreview"></div>
+        <input type="file" id="imageInput" name="image" onchange="previewImage(event)"> <br>
+        <input type="submit" value="Upload">
     </form>
+
+
 </div>
+
+<script>
+    function previewImage(event) {
+        var input = event.target;
+        var reader = new FileReader();
+
+        reader.onload = function(){
+            var dataURL = reader.result;
+            var imagePreview = document.getElementById('imagePreview');
+            imagePreview.innerHTML = '<img src="' + dataURL + '" style="max-width: 100px; max-height: 100px;">';
+        };
+
+        reader.readAsDataURL(input.files[0]);
+    }
+</script>
+
+
 
 </body>
 </html>
