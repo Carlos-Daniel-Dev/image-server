@@ -16,7 +16,7 @@ class ImageController extends Controller
 
     public function store(Request $request)
     {
-        if (! $request->hasFile('image')) return "Nenhuma imagem enviada!";
+        if (! $request->hasFile('image')) return redirect()->route('images.upload')->with('error', 'image uploaded with error');
 
         $image = $request->file('image');
 
@@ -24,10 +24,7 @@ class ImageController extends Controller
 
         $image->storeAs('public/images', $imageName);
 
-
-
-        Session::flash('message', 'Mensagem enviada com sucesso')
-        return view('upload');
+        return redirect()->route('images.upload')->with('success', 'image uploaded with sucess');
     }
 
 
