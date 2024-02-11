@@ -32,7 +32,7 @@
                 <form class="m-4" action="{{ route('images.store') }}" method="post" enctype="multipart/form-data">
                     @csrf
                     <div class="mb-3">
-                        <input type="file" class="form-control form-control-lg" id="image" name="image" onchange="previewImage(event)">
+                        <input type="file" class="form-control form-control-lg" id="image" name="image" accept="image/*" onchange="previewImage(event)">
                     </div>
                     <div id="imagePreview" class="mb-3"></div>
                     <button type="submit" class="btn btn-primary btn-lg">Upload</button>
