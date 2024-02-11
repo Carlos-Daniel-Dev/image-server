@@ -18,8 +18,8 @@
 <body class="bg-dark">
     <div class="container text-center">
         <h1 class="display-1">404</h1>
-        <p class="lead">Página não encontrada</p>
-        <a href="/" class="btn btn-primary">Voltar para a página inicial</a>
+        <p class="lead">Página not found</p>
+        <a href="/" class="btn btn-primary">Go back to home page</a>
     </div>
 </body>
 </html>
