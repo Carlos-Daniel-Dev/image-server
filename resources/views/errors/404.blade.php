@@ -11,14 +11,13 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            color: white; /* Define a cor do texto como branco */
-        }
+            color: white;        }
     </style>
 </head>
 <body class="bg-dark">
     <div class="container text-center">
         <h1 class="display-1">404</h1>
-        <p class="lead">Página not found</p>
+        <p class="lead">Page not found</p>
         <a href="/" class="btn btn-primary">Go back to home page</a>
     </div>
 </body>
