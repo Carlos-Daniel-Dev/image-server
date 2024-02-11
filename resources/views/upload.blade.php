@@ -5,62 +5,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Upload de Imagens</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 20px;
-        }
-        .container {
-            max-width: 600px;
-            margin: 0 auto;
-        }
-        form {
-            border: 1px solid #ccc;
-            padding: 20px;
-            border-radius: 5px;
-            background-color: #f9f9f9;
-        }
-        input[type="file"] {
-            margin-bottom: 10px;
-        }
-        input[type="submit"] {
-            background-color: #4caf50;
-            color: white;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-    </style>
 </head>
 <body class="bg-dark">
 
-<div class="container">
-    <h2>Upload de Imagens</h2>
-    
-    @if (session('success'))
-    <div class="alert alert-success">
-        {{ session('success') }}
-    </div>
-    @endif
+<div class="container-xl d-flex justify-content-center align-items-center vh-100">
+    <div class="row">
+        <div class="col-md-12 mx-auto">
+            <div class="bg-light p-4 rounded-lg shadow-sm">
+                
+                @if (session('success'))
+                    <div class="alert alert-success">
+                        {{ session('success') }}
+                    </div>
+                @endif
 
-    @if (session('error'))
-        <div class="alert alert-danger">
-            {{ session('error') }}
+                @if (session('error'))
+                    <div class="alert alert-danger">
+                        {{ session('error') }}
+                    </div>
+                @endif
+
+                <form class="m-4" action="{{ route('images.store') }}" method="post" enctype="multipart/form-data">
+                    @csrf
+                    <div class="mb-3">
+                        <input type="file" class="form-control form-control-lg" id="image" name="image" onchange="previewImage(event)">
+                    </div>
+                    <div id="imagePreview" class="mb-3"></div>
+                    <button type="submit" class="btn btn-primary btn-lg">Enviar</button>
+                </form>
+            </div>
         </div>
-    @endif
-
-    
-    <form id="uploadForm" action="{{ route('images.store') }}" method="post" enctype="multipart/form-data">
-        @csrf
-        <div id="imagePreview"></div>
-        <input type="file" id="imageInput" name="image" onchange="previewImage(event)"> <br>
-        <input type="submit" value="Upload">
-    </form>
-
-
+    </div>
 </div>
 
 <script>
@@ -77,8 +52,6 @@
         reader.readAsDataURL(input.files[0]);
     }
 </script>
-
-
 
 </body>
 </html>
