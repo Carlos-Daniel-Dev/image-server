@@ -36,7 +36,7 @@ class ImageController extends Controller
             
             return view('show', ['url' => $url]);
         } else {
-            abort(404);
+            return view('errors.image_not_found');
         }
     }
 }
