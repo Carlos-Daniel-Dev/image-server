@@ -15,8 +15,17 @@ class ImageController extends Controller
 
     public function store(Request $request)
     {
+        $request->validate([
+        'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048', // Max 2MB
+        ], [
+            'image.required' => 'Please select an image to upload.',
+            'image.image' => 'The uploaded file must be an image.',
+            'image.mimes' => 'The image format must be JPEG, PNG, JPG, or GIF.',
+            'image.max' => 'The maximum size of the image is 2MB.',
+        ]);
+
         if (!$request->hasFile('image')) {
-            return redirect()->route('images.upload')->with('error', 'image uploaded with error');
+            return redirect()->route('images.upload')->with('error', 'Image uploaded with error');
         }
 
         $image = $request->file('image');
@@ -27,6 +36,7 @@ class ImageController extends Controller
 
         return redirect()->route('images.show', ['id' => $imageName]);
     }
+
 
     public function show(Request $request, string $id)
     {

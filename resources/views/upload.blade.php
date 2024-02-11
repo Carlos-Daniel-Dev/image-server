@@ -25,6 +25,10 @@
                     </div>
                 @endif
 
+                @error('image')
+                    <div class="text-danger">{{ $message }}</div>
+                @enderror
+
                 <form class="m-4" action="{{ route('images.store') }}" method="post" enctype="multipart/form-data">
                     @csrf
                     <div class="mb-3">
