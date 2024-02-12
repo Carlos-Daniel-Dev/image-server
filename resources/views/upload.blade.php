@@ -1,5 +1,7 @@
 @extends('templates.main')
 
+@section('title') Upload @endsection
+
 @section('content')
 <div class="container-xl d-flex justify-content-center align-items-center vh-100">
     <div class="row">
