@@ -24,7 +24,10 @@
 
                 <form class="m-4" action="{{ route('images.store') }}" method="post" enctype="multipart/form-data">
                     @csrf
-                    <div class="mb-3">
+                     <div class="row justify-content-center align-items-center">
+                        <input type="text" name="title" class="form-control" style="font-size: 22px;">
+                    </div>
+                    <div class="my-4">
                         <input type="file" class="form-control form-control-lg" id="image" name="image" accept="image/*" onchange="previewImage(event)">
                     </div>
                     <div id="imagePreview" class="mb-3"></div>
