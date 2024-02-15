@@ -3,42 +3,44 @@
 @section('title') Upload @endsection
 
 @section('content')
-<div class="container-xl d-flex justify-content-center align-items-center vh-100">
-    <div class="row">
-        <div class="col-md-12 mx-auto">
-            <div class="bg-light p-4 rounded-lg shadow-sm">
-                
-                @if (session('success'))
-                    <div class="alert alert-success">
-                        {{ session('success') }}
-                    </div>
-                @endif
+<main class="flex-grow-1">
+    <div class="container-xl d-flex justify-content-center align-items-center" style="height: calc(100vh - 56px);"> <!-- 56px é a altura aproximada da barra de navegação -->
+        <div class="row">
+            <div class="col-md-12 mx-auto">
+                <div class="bg-light p-4 rounded-lg shadow-sm">
+                    
+                    @if (session('success'))
+                        <div class="alert alert-success">
+                            {{ session('success') }}
+                        </div>
+                    @endif
 
-                @if (session('error'))
-                    <div class="alert alert-danger">
-                        {{ session('error') }}
-                    </div>
-                @endif
+                    @if (session('error'))
+                        <div class="alert alert-danger">
+                            {{ session('error') }}
+                        </div>
+                    @endif
 
-                @error('image')
-                    <div class="text-danger">{{ $message }}</div>
-                @enderror
+                    @error('image')
+                        <div class="text-danger">{{ $message }}</div>
+                    @enderror
 
-                <form class="m-4" action="{{ route('images.store') }}" method="post" enctype="multipart/form-data">
-                    @csrf
-                     <div class="row justify-content-center align-items-center">
-                        <input type="text" name="title" class="form-control" style="font-size: 22px;">
-                    </div>
-                    <div class="my-4">
-                        <input type="file" class="form-control form-control-lg" id="image" name="image" accept="image/*" onchange="previewImage(event)">
-                    </div>
-                    <div id="imagePreview" class="mb-3"></div>
-                    <button type="submit" class="btn btn-primary btn-lg">Upload</button>
-                </form>
+                    <form class="m-4" action="{{ route('images.store') }}" method="post" enctype="multipart/form-data">
+                        @csrf
+                        <div class="row justify-content-center align-items-center">
+                            <input type="text" name="title" class="form-control" style="font-size: 22px;">
+                        </div>
+                        <div class="my-4">
+                            <input type="file" class="form-control form-control-lg" id="image" name="image" accept="image/*" onchange="previewImage(event)">
+                        </div>
+                        <div id="imagePreview" class="mb-3"></div>
+                        <button type="submit" class="btn btn-primary btn-lg">Upload</button>
+                    </form>
+                </div>
             </div>
         </div>
     </div>
-</div>
+</main>
 
 <script>
     function previewImage(event) {
