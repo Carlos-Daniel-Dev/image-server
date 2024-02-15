@@ -4,7 +4,7 @@
 
 @section('content')
 <main class="flex-grow-1">
-    <div class="container-xl d-flex justify-content-center align-items-center" style="height: calc(100vh - 56px);"> <!-- 56px é a altura aproximada da barra de navegação -->
+    <div class="container-xl d-flex justify-content-center align-items-center" style="height: calc(100vh - 56px);">
         <div class="row">
             <div class="col-md-12 mx-auto">
                 <div class="bg-light p-4 rounded-lg shadow-sm">

@@ -7,14 +7,14 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <style>
         .imagem {
-          max-width: 100%; /* Garante que a imagem não exceda o tamanho do contêiner */
-          max-height: 80vh; /* Define a altura máxima como 80% da altura da janela de visualização */
-          margin: auto; /* Centraliza a imagem horizontalmente */
-          display: block; /* Garante que a margem automática funcione */
+          max-width: 100%;
+          max-height: 80vh;
+          margin: auto;
+          display: block;
         }
 
         body {
-            font-family: 'Roboto', sans-serif; /* Altera a fonte padrão para 'Roboto' */
+            font-family: 'Roboto', sans-serif;
             color: white;        }
     </style>
 </head>
