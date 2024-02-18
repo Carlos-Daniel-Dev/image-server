@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
+use Illuminate\Support\Facades\Cookie;
+
+
 use App\Models\User;
 
 class SingUpController extends Controller
@@ -23,16 +26,21 @@ class SingUpController extends Controller
         ]);
 
 
+        $token = hash('sha256', time() . $validated['email']);
+
+
+
+
         User::create([
 
             'username' => $validated['username'],
             'email' => $validated['email'],
             'password' => $password = Hash::make('yourpassword'),
-            'token' => hash('sha256', time() . $validated['email'])
+            'token' => $token
 
         ]);
 
-        return redirect()->route('home');
+        return redirect()->route('home')->withCookie(cookie('token', $token, 60*24*365));;
 
 
     }
