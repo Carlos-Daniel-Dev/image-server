@@ -10,4 +10,13 @@ class SingUpController extends Controller
     {
         return view('singup');
     }
+
+    public function store ()
+    {
+        $validated = $request->validate([
+            'username' => 'required|min:5|max:24',
+            'email' => 'required|email',
+            'password' => 'required|min:5|max:24'
+        ]);
+    }
 }

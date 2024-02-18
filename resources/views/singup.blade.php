@@ -25,7 +25,7 @@
                         <div class="text-danger">{{ $message }}</div>
                     @enderror
 
-                    <form>
+                    <form method="POST" action="{{ route('singup.store') }} ">
                         <div class="form-group">
                             <label for="exampleInputEmail1">Username</label>
                             <input type="text" class="form-control" name="username" aria-describedby="UserHelp" placeholder="Enter Username">
