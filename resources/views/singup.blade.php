@@ -26,6 +26,7 @@
                     @enderror
 
                     <form method="POST" action="{{ route('singup.store') }} ">
+                        @csrf
                         <div class="form-group">
                             <label for="exampleInputEmail1">Username</label>
                             <input type="text" class="form-control" name="username" aria-describedby="UserHelp" placeholder="Enter Username">
