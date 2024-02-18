@@ -26,7 +26,7 @@ class SingUpController extends Controller
 
             'username' => $validated['username'],
             'email' => $validated['email'],
-            'password' => $validated['password'],
+            'password' => $password = Hash::make('yourpassword'),
             'token' => hash('sha256', time() . $validated['email'])
 
         ]);
