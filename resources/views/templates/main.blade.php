@@ -13,9 +13,9 @@
           display: block;
         }
 
-        body {
+        * {
             font-family: 'Roboto', sans-serif;
-            color: white;        
+            color: black;        
         }
     </style>
 </head>
