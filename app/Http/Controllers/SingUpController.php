@@ -21,11 +21,13 @@ class SingUpController extends Controller
             'password' => 'required|min:5|max:24'
         ]);
 
+
         User::create([
 
-            'username' => $validated->input('username'),
-            'email' => $validated->input('email'),
-            'password' => $validated->input('password'),
+            'username' => $validated['username'],
+            'email' => $validated['email'],
+            'password' => $validated['password'],
+            'token' => hash('sha256', time() . $validated['email'])
 
         ]);
 
