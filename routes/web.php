@@ -14,6 +14,6 @@ Route::post('/image/store', [ImageController::class, 'store'])->name('images.sto
 Route::get('/image/{id}', [ImageController::class, 'show'])->name('images.show');
 
 Route::get('/singup', [SingUpController::class, 'index'])->name('singup');
-Route::post('/singup/store', [LoginController::class, 'store'])->name('singup.store');
+Route::post('/singup/store', [SingUpController::class, 'store'])->name('singup.store');
 
 Route::get('/login', [LoginController::class, 'index'])->name('login');
