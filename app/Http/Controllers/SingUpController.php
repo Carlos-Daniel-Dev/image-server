@@ -32,7 +32,8 @@ class SingUpController extends Controller
 
         ]);
 
-        return 'opa';
+        return redirect()->route('home');
+
 
     }
 }
