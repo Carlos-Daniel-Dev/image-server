@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ImageController;
 use App\Http\Controllers\SingUpController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\UserController;
 
 
 Route::redirect('/', '/image/upload')->name('home');
@@ -17,3 +18,5 @@ Route::get('/singup', [SingUpController::class, 'index'])->name('singup');
 Route::post('/singup/store', [SingUpController::class, 'store'])->name('singup.store');
 
 Route::get('/login', [LoginController::class, 'index'])->name('login');
+
+Route::get('/profile', [UserController::class, 'profile'])->name('profile');
