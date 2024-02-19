@@ -31,7 +31,7 @@
           </ul>
           <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
             @if (Cookie::has('user_token'))
-            
+
                 @php
                     $user = App\Models\User::where('token', $_COOKIE['user_token'])->first();
                 @endphp
@@ -42,7 +42,7 @@
                     <a href="{{ route('login') }}">Login</a>
                 @endif
             @else
-                <a href="{{ route('login') }}">Login2</a>
+                <a href="{{ route('login') }}">Login</a>
             @endif
 
           </ul>
