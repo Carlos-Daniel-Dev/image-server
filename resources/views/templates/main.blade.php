@@ -42,6 +42,7 @@
                     <a href="{{ route('login') }}">Login</a>
                 @endif
             @else
+                <a href="{{ route('singup') }}" class="mx-3">SingUp</a>
                 <a href="{{ route('login') }}">Login</a>
             @endif
 
