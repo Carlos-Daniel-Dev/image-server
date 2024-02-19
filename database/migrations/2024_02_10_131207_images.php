@@ -11,12 +11,14 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('images', function (Blueprint $table) {
-            $table->id();
-            $table->string('title');
-            $table->string('hash');
-            $table->timestamps();
-        });
+        if (! Schema::hasTable('images')) {
+            Schema::create('images', function (Blueprint $table) {
+                $table->id();
+                $table->string('title');
+                $table->string('hash');
+                $table->timestamps();
+            });
+        }
     }
 
 
