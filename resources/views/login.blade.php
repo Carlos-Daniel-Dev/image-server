@@ -25,7 +25,7 @@
                         <div class="text-danger">{{ $message }}</div>
                     @enderror
 
-                    <form>
+                    <form method="POST" action="{{ route('login.login') }}">
                         <div class="form-group">
                             <label for="exampleInputEmail1">Email address</label>
                             <input type="email" class="form-control" name="email" aria-describedby="emailHelp" placeholder="Enter email">
