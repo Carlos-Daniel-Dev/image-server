@@ -27,7 +27,7 @@ class LoginController extends Controller
         $user = User::where('email', $email)->first();
 
         if ($user && Hash::check($password, $user->password)) {
-            return redirect()->route('home')->withCookie(cookie('user_token', $token, 60*24*365));
+            return redirect()->route('home')->withCookie(cookie('user_token', $user->token, 60*24*365));
         } else {
             return redirect()->route('login');
         }
