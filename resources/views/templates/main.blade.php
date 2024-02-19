@@ -30,9 +30,21 @@
             </li>
           </ul>
           <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-            <!-- <li class="nav-item">
-              <a class="nav-link" href="">Perfil</a>
-            </li> -->
+            @if (Cookie::has('user_token'))
+            
+                @php
+                    $user = App\Models\User::where('token', $_COOKIE['user_token'])->first();
+                @endphp
+
+                @if ($user)
+                    <a href="{{ route('profile') }}">Profile</a>
+                @else
+                    <a href="{{ route('login') }}">Login</a>
+                @endif
+            @else
+                <a href="{{ route('login') }}">Login2</a>
+            @endif
+
           </ul>
         </div>
       </div>
