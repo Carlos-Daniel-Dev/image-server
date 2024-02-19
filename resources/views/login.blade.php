@@ -26,6 +26,7 @@
                     @enderror
 
                     <form method="POST" action="{{ route('login.login') }}">
+                        @csrf
                         <div class="form-group">
                             <label for="exampleInputEmail1">Email address</label>
                             <input type="email" class="form-control" name="email" aria-describedby="emailHelp" placeholder="Enter email">
