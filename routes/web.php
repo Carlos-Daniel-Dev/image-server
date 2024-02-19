@@ -18,5 +18,6 @@ Route::get('/singup', [SingUpController::class, 'index'])->name('singup');
 Route::post('/singup/store', [SingUpController::class, 'store'])->name('singup.store');
 
 Route::get('/login', [LoginController::class, 'index'])->name('login');
+Route::post('/login/login', [LoginController::class, 'login'])->name('login.login');
 
 Route::get('/profile', [UserController::class, 'profile'])->name('profile');
