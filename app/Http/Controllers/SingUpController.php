@@ -32,11 +32,11 @@ class SingUpController extends Controller
 
             'username' => $validated['username'],
             'email' => $validated['email'],
-            'password' => $password = Hash::make('yourpassword'),
+            'password' => $password = Hash::make($password),
             'token' => $token
 
         ]);
-        
+
         return redirect()->route('home')->withCookie(cookie('user_token', $token, 60*24*365));
 
     }
