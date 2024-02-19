@@ -28,9 +28,6 @@ class SingUpController extends Controller
 
         $token = hash('sha256', time() . $validated['email']);
 
-
-
-
         User::create([
 
             'username' => $validated['username'],
@@ -39,9 +36,8 @@ class SingUpController extends Controller
             'token' => $token
 
         ]);
-
-        return redirect()->route('home')->withCookie(cookie('token', $token, 60*24*365));;
-
+        
+        return redirect()->route('home')->withCookie(cookie('user_token', $token, 60*24*365));
 
     }
 }
